@@ -1,0 +1,40 @@
+{% extends 'feed/base.html' %}
+
+{% block title %}Willow - Public Feed{% endblock %}
+
+{% block header %}{% endblock %}
+
+{% block center %}
+    <div>
+    {% for post in posts %}
+        <div class='rectangle post'>
+            <p>
+                <a href='{{ post.user.get_absolute_url }}'>
+                    <b>{{post.user.username}}</b>
+                </a> / {{post.date}}
+            </p>
+            <p>
+                <a href='{{ post.get_absolute_url }}'>
+                    <b>{{post.title}}</b>
+                </a>
+            </p>
+            <p>{{post.content}}</p>
+            <br>
+        </div>
+    {% endfor %}
+    </div>
+    <div class='rectangle right'>
+        <div class='current_channel'>
+            <p><b>{{current_channel.name}}</b></p>
+            <p>{{current_channel.description}}</p>
+        </div>
+        <nav class='channels'>
+            <label><b>Channels</b></label>
+            <ul>
+            {% for channel in channels %}
+                <li><a href='{{ channel.get_absolute_url }}'>{{channel.name}}</a></li>
+            {% endfor %}
+            </ul>
+        </nav>
+    </div>
+{% endblock %}

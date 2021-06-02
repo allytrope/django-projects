@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% block title %}Willow{% endblock %}</title>
+        {% load static %}
+        <link rel='stylesheet' type='text/css' href='{% static "feed/base.css" %}'>
+    </head>
+    <body>
+        <nav class='main'>
+            <div>Home</div>
+            <div>My Feed</div>
+            <div>My Acccount</div>
+        </nav>
+        <div class='submain'></div>
+        <div>
+            {% block header %}{% endblock %}
+        </div>
+        <div class='center'>
+            {% block center %}{% endblock %}
+        </div>
+    </body>
+</html>

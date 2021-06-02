@@ -1,0 +1,36 @@
+{% extends 'feed/base.html' %}
+
+{% block title %}Willow - Post{% endblock %}
+
+{% block header %}{% endblock %}
+
+{% block center %}
+<div class='rectangle'>
+    <div class='post'>
+        <p>
+            <a href='{{ post.user.get_absolute_url }}'>
+                <b>{{post.user.username}}</b>
+            </a> / {{post.date}}
+        </p>
+        <p>
+            <a href='{{ post.get_absolute_url }}'>
+                <b>{{post.title}}</b>
+            </a>
+        </p>
+        <p>{{post.content}}</p>
+        <br>
+    </div>
+    <div class='comment_section'>
+    {% for comment in post.comment_set.all %}
+        <div class='comment'>
+            <p>
+                <a href='{{ comment.user.get_absolute_url }}'>
+                    <b>{{comment.user.username}}</b>
+                </a> / {{comment.date}}</p>
+            <p>{{comment.content}}</p>
+        </div>
+        <br>
+    {% endfor %}
+    </div>
+</div>
+{% endblock %}
