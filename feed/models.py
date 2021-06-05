@@ -38,7 +38,7 @@ class Following(models.Model):
 
 class Post(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    channel = models.ForeignKey(Channel, on_delete=models.CASCADE, null=True)
+    channel = models.ForeignKey(Channel, on_delete=models.CASCADE)
     title = models.CharField(max_length=40)
     content = models.TextField()
     date = models.DateTimeField(auto_now=True)
