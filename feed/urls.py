@@ -1,4 +1,5 @@
 from django.urls import path
+from django.urls.conf import include
 
 from . import views
 
@@ -8,4 +9,5 @@ urlpatterns = [
     path('channel/<str:channel_name>/', views.feed, name='channel'),
     path('post/<int:post_id>/', views.post, name='post'),
     path('new-post/<str:channel_name>/', views.new_post, name='new_post'),
+    path('post-api/', views.post_api.as_view(), name='post_api'),
 ]

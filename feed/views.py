@@ -1,7 +1,9 @@
 from django.shortcuts import render
+from rest_framework import response, views
 
 from .forms import PostForm
 from .models import User, Channel, Post
+from .serializers import PostSerializer
 
 # Create your views here.
 def feed(request, channel_name=None):
@@ -44,3 +46,12 @@ def new_post(request, channel_name):
         'channel': channel,
         }
     return render(request, 'feed/new_post.html', context)
+
+class post_api(views.APIView):
+    def get(self, request, *args, **kwargs):
+        data = Post.objects.all()
+        serializer = PostSerializer(data, many=True)
+        return response.Response(serializer.data)
+
+    #def post(self, request, *args, **kwargs):
+    #    pass

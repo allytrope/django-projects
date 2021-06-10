@@ -23,18 +23,15 @@
         </div>
     {% endfor %}
     </div>
-    <div class='rectangle right'>
-        <div class='current_channel'>
-            {% if current_channel %}
+    <div class='right'>
+        {% if current_channel %}
+        <div class='current_channel rectangle'>
             <p><b>{{current_channel.name}}</b></p>
             <p>{{current_channel.description}}</p>
-        </div>
-        <div>
             <a href='{% url "new_post" current_channel.name %}'>Create Post</a>
-            {% endif %}
         </div>
-        <br>
-        <nav class='channels'>
+        {% endif %}
+        <nav class='channels rectangle'>
             <label><b>Channels</b></label>
             <ul>
             {% for channel in channels %}

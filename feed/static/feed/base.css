@@ -15,6 +15,7 @@ nav.main {
     position: sticky;
     margin: 0px;
     padding: 0px;
+    height: 40px;
     width: 100%;
 }
 
@@ -22,7 +23,7 @@ nav.main div {
     display: inline-block;
     margin-left: 40px;
     text-transform: uppercase;
-    margin-bottom: 20px;
+    margin: 20px;
 }
 
 .submain {
@@ -39,15 +40,13 @@ nav.main div {
     max-width: 700px;
     margin: auto;
 }
-
+/*
 nav.channels {
     width: 25%;
 }
-
+*/
 nav.channels ul li {
     list-style: None;
-    margin: 4px;
-    width: 100px;
 }
 
 .post {
@@ -71,7 +70,7 @@ a:hover {
 
 .rectangle {
     padding: 0px 10px 0px 10px;
-    border: 3px solid purple;
+    border: 2px solid purple;
     border-radius: 10px;
     background-color: rgb(207, 207, 207);
     margin: 0px 10px 20px 10px;
